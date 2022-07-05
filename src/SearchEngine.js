@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import axios from "axios";
+import axios from "axios";
 
 export default function SearchEngine() {
   const [city, setCity] = useState("");
@@ -21,7 +21,7 @@ export default function SearchEngine() {
     event.preventDefault();
     let apiKey = "445c7163cebd4264ef3f8436bcb8200c";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    //  axios.get(apiUrl).then(displayWeather);
+    axios.get(apiUrl).then(displayWeather);
   }
 
   function typeCity(event) {
@@ -39,7 +39,7 @@ export default function SearchEngine() {
     return (
       <div>
         {form}
-        <ul>
+        <ul className="list">
           <li>Temperature: {weather.temperature}°C</li>
           <li>Description: {weather.description}</li>
           <li>Humidity: {weather.humidity}%</li>
